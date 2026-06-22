@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯 · 专题资料索引 | 杂志风</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(165deg, #fce6b4 0%, #f7d09a 30%, #eebd8c 60%, #dda57a 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      line-height: 1.7;
+      color: #2d2418;
+    }
+
+    .magazine-wrapper {
+      max-width: 900px;
+      width: 100%;
+      background: rgba(255, 252, 245, 0.92);
+      backdrop-filter: blur(4px);
+      border-radius: 44px 44px 38px 38px;
+      box-shadow: 0 20px 40px -12px rgba(140, 80, 30, 0.25), 0 8px 18px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      padding: 2.5rem 2.8rem 3.2rem;
+      transition: all 0.2s ease;
+    }
+
+    /* hero 横幅区 */
+    .hero-banner {
+      margin: -2.5rem -2.8rem 2.2rem -2.8rem;
+      padding: 3rem 2.8rem 2.4rem;
+      background: linear-gradient(130deg, #f3d9b1, #ebc9a0, #dcb282);
+      border-bottom: 2px solid rgba(190, 140, 80, 0.25);
+      position: relative;
+    }
+
+    .hero-banner::after {
+      content: "⏺ 资料辑 · 索引专刊";
+      position: absolute;
+      right: 2.4rem;
+      bottom: 0.8rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+      color: #7a5d3a;
+      background: rgba(255, 240, 215, 0.7);
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      backdrop-filter: blur(2px);
+    }
+
+    .hero-title {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #281f13;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-title small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #5b432a;
+      background: rgba(255, 248, 230, 0.5);
+      padding: 0.1rem 0.8rem;
+      border-radius: 60px;
+      margin-left: 0.6rem;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: #3f2f1b;
+      background: rgba(255, 241, 218, 0.5);
+      display: inline-block;
+      padding: 0.2rem 1.6rem 0.2rem 1.2rem;
+      border-radius: 40px;
+      backdrop-filter: blur(2px);
+      border: 1px solid #dbb586;
+      font-weight: 350;
+    }
+
+    /* 正文卡片式段落 */
+    .article-section {
+      margin: 2.2rem 0;
+    }
+
+    .article-card {
+      background: #fffcf6;
+      border-radius: 28px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 4px 12px rgba(170, 120, 60, 0.08);
+      border: 1px solid #efe2cf;
+      transition: 0.2s;
+    }
+
+    .article-card:hover {
+      box-shadow: 0 6px 16px rgba(160, 105, 40, 0.10);
+      border-color: #dcc29e;
+    }
+
+    .article-card h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #3f2c16;
+      border-left: 5px solid #c9a16b;
+      padding-left: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .article-card p {
+      margin: 0.6rem 0 0.4rem;
+      color: #382b1d;
+    }
+
+    .article-card p + p {
+      margin-top: 0.6rem;
+    }
+
+    .inline-link {
+      color: #955e2b;
+      background: #f8efe3;
+      padding: 0.1rem 0.5rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.15s;
+      border-bottom: 1px solid transparent;
+    }
+
+    .inline-link:hover {
+      background: #dfcbb3;
+      color: #4a2f14;
+      border-bottom: 1px solid #a97a48;
+    }
+
+    .link-button {
+      display: inline-block;
+      background: #cb9f6e;
+      color: #1f160d;
+      padding: 0.55rem 1.8rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.0rem;
+      letter-spacing: 0.01em;
+      border: 1px solid #b88958;
+      box-shadow: 0 2px 6px rgba(150, 90, 30, 0.15);
+      transition: 0.2s;
+    }
+
+    .link-button:hover {
+      background: #dbb17b;
+      box-shadow: 0 4px 10px rgba(140, 80, 25, 0.20);
+      transform: scale(1.01);
+      border-color: #a56e3a;
+    }
+
+    .faq-mini {
+      background: #f5ede1;
+      border-radius: 34px;
+      padding: 1.2rem 1.8rem;
+      margin: 2rem 0 0.8rem;
+      border: 1px solid #dcc29e;
+    }
+
+    .faq-mini h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #3d2b17;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.3px;
+    }
+
+    .faq-mini p {
+      font-size: 0.95rem;
+      color: #4c3822;
+    }
+
+    .footnote {
+      margin-top: 2.8rem;
+      padding-top: 1.2rem;
+      text-align: center;
+      border-top: 1px solid #dec9b0;
+      font-size: 0.9rem;
+      color: #6c5438;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1.2rem;
+    }
+
+    .footnote a {
+      color: #7c5d38;
+      text-decoration: none;
+      border-bottom: 1px dashed #b6956c;
+    }
+
+    .footnote a:hover {
+      border-bottom-style: solid;
+    }
+
+    /* 响应式 */
+    @media (max-width: 700px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .magazine-wrapper {
+        padding: 1.8rem 1.2rem 2.2rem;
+        border-radius: 32px;
+      }
+      .hero-banner {
+        margin: -1.8rem -1.2rem 1.6rem -1.2rem;
+        padding: 2rem 1.2rem 1.8rem;
+      }
+      .hero-title {
+        font-size: 2rem;
+        flex-wrap: wrap;
+      }
+      .hero-title small {
+        font-size: 0.8rem;
+      }
+      .article-card {
+        padding: 1.2rem 1.2rem;
+      }
+      .article-card h2 {
+        font-size: 1.25rem;
+      }
+      .faq-mini {
+        padding: 1rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.7rem;
+      }
+      .hero-sub {
+        font-size: 0.9rem;
+      }
+      .link-button {
+        padding: 0.45rem 1.2rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="magazine-wrapper">
+  <!-- hero 横幅 -->
+  <div class="hero-banner">
+    <div class="hero-title">
+      <span>世界杯</span>
+      <small>资料索引</small>
+    </div>
+    <div class="hero-sub">整理 · 脉络 · 纪实档案</div>
+  </div>
+
+  <!-- 三段自然介绍 + 背景说明 -->
+  <div class="article-section">
+    <div class="article-card">
+      <h2>赛事档案的整理逻辑</h2>
+      <p>
+        围绕现代足球最高舞台，从 1930 年首届乌拉圭赛事至今，<a href="https://official-shijiecup.com" class="inline-link">世界杯</a>积累了浩如烟海的比赛数据、球队沿革与影像记录。本索引站以「资料卡片」方式梳理历届主办国、决赛对阵、射手序列以及规程变化，减少信息碎片化带来的检索负担。每一条目均标注原始来源，方便深度查证。
+      </p>
+    </div>
+
+    <div class="article-card">
+      <h2>背景说明 · 类别目录</h2>
+      <p>
+        早期世界杯受交通与政治环境影响，参赛规模与赛制几经变革。为便于横向对比，索引将赛事分为五个阶段：创立与探索期（1930–1950）、扩军与电视转播期（1954–1978）、全球化成熟期（1982–2002）、战术细分时代（2006–2018）以及近期变革（2022 至今）。每一个阶段都特别收录了规则调整、用球演变与经典瞬间的背景说明。
+      </p>
+      <p>
+        同时，页面汇总了各届预选赛晋级路径与决赛圈签表，并附注当届争议判罚与赛风记录。所有内容均来自公开赛事报告与权威年鉴，不包含推测或未证实信息。
+      </p>
+    </div>
+
+    <div class="article-card">
+      <h2>特点 · 场景 · 查阅提示</h2>
+      <p>
+        资料集特别强调「原始数据优先」：每届 <a href="https://official-shijiecup.com" class="inline-link">世界杯</a> 均列出小组赛完整比分、淘汰赛对阵树、红黄牌及进球时间分布。适合赛事研究者、内容创作者、数据分析爱好者以及深度球迷按需引用。无需注册即可浏览全部原始表格，并可通过关键词筛选年份或队伍。
+      </p>
+      <p>
+        站内另设专题索引：裁判记录、主办城市球场档案、经典决赛复盘（附比赛报告 PDF 链接）。每一份文档都标明版本日期，保证引用时效性。
+      </p>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要风格 -->
+  <div class="faq-mini">
+    <h3>📘 常见索引问题</h3>
+    <p><strong>Q：</strong> 如何快速查找某支球队在历届世界杯上的总战绩？<br>
+    <strong>A：</strong> 在索引页的「国家队总览」模块输入队名，即可调取该队所有参赛届次、胜平负、进失球及最好成绩。数据更新至 2024 年官方统计。</p>
+    <p style="margin-top: 0.5rem;"><strong>Q：</strong> 决赛圈赛制变更记录是否有汇总？<br>
+    <strong>A：</strong> 是的，「赛制沿革」页整理了 1930–2026 期间所有赛制调整，包括小组赛轮次、淘汰赛加时 / 点球规则变化、换人名额改动等，每条款项均引用国际足联官方公报。</p>
+  </div>
+
+  <!-- 指向官网链接，文本严格等于「世界杯」 -->
+  <div style="text-align: center; margin: 2.2rem 0 0.6rem;">
+    <a href="https://official-shijiecup.com" class="link-button">世界杯</a>
+    <p style="margin-top: 0.6rem; font-size: 0.85rem; color: #6f5537;">资料索引持续收录，以客观档案为准</p>
+  </div>
+
+  <!-- 页尾访问提示 -->
+  <div class="footnote">
+    <span>📋 专题内容基于公开资料汇编</span>
+    <span>·</span>
+    <span>建议搭配 <a href="https://official-shijiecup.com">世界杯</a> 官网交叉查阅</span>
+    <span>·</span>
+    <span>版本 2025.04 · 杂志式索引</span>
+  </div>
+</div>
+</body>
+</html>
